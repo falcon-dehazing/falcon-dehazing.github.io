@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+    <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FALCON: Fast Image Haze Removal Leveraging Continuous Density Mask</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/custom.css">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/custom.js"></script>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">FALCON: Fast Image Haze Removal Leveraging Continuous
+                            Density Mask</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="/">Paper ID 226</a>
+                                <sup></sup>
+                            </span>
+                            </span>
+                        </div>
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="/" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="/" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3"></h2>
+                    <div class="content has-text-justified">
+                        <div class="image-gallery">
+                            <div class="image-item">
+                                <div class="image-caption">Overview of FALCON</div>
+                                <img src="/assets/FALCON_Overview.png" alt="Dense-Haze Results">
+                            </div>
+                            <div class="image-item">
+                                <div class="image-caption">Comparison of FALCON</div>
+                                <img src="/assets/plot_ver6_3.png" alt="NH-Haze Results">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>Image dehazing, eliminating atmospheric interference like fog and haze, remains a pervasive
+                            challenge crucial for robust vision applications such as surveillance and remote sensing
+                            under adverse visibility.</p>
+                        <p>
+                            While various methodologies have evolved from early works that predict haze-related features
+                            to dehazing
+                            deep learning networks, they innately prioritize dehazing quality metrics, neglecting the
+                            need for real-time applicability in time-sensitive domains like autonomous driving.
+                            Considering the need for a pioneering hybrid paradigm in dehazing, we present FALCON, a
+                            single-image dehazing system achieving state-of-the-art performance on both quality and
+                            speed.
+                        </p>
+                        <p>
+                            Particularly, we leverage the underlying haze distribution via a novel approach called
+                            Continuous
+                            Density Mask (CDM).CDM serves as a continuous-valued mask input prior and auxiliary loss,
+                            allowing model to explicitly identify pixel-wise haze density.We also implement the haze
+                            density calculation in a differentiable manner.
+                        </p>
+                        <p>
+                            Further, we introduce a low model-workload recipe that globally expand the receptive field
+                            by adding a single bottleneck module to U-Net.Comprehensive experiments involving multiple
+                            state-of-the-art methods and ablation analysis
+                            demonstrate FALCON's exceptional performance in both dehazing quality and speed (i.e., >180
+                            frames-per-second), quantified by metrics such as FPS, PSNR, and SSIM.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Methods</h2>
+                    <div class="content has-text-justified">
+                        <div class="image-container">
+                            <figure>
+                                <img src="assets/CDM_overview_ver5_(1).jpg" alt="Usage of CDM" width="500" title="CDM">
+                                <figcaption>Usage of CDM</figcaption>
+                            </figure>
+                        </div>
+                        <br>
+                        <div class="image-container">
+                            <figure>
+                                <img src="assets/network_arch.jpg" alt="Overall Pipeline of FALCON" width="1000"
+                                    title="FALCON">
+                                <figcaption>Overall Pipeline of FALCON</figcaption>
+                            </figure>
+                        </div>
+                        <br>
+                        <p>
+                            (1) First, our model uniquely computes the haze density map, namely, Continuous Density Mask
+                            (CDM), based on the
+                            principle from the Dark Channel Prior (DCP)~\cite{dcp}. CDM is then used as a input prior
+                            and auxiliary loss. In particular, the original density map calculation involves a nested
+                            minimization which is seemingly non-differentiable and CPU-intensive. However, we identify
+                            that this process easily equates to a special type of pooling, turning the density map
+                            calculation to be an extremely computationally efficient process.
+                        </p>
+                        <p>
+                            (2) Next, we utilize Frequency
+                            Adjoint Link (FAL) as a bottleneck module which greatly improves the vanilla
+                            U-Net~\cite{unet} by efficiently expanding the receptive field with minimal network size
+                            increase.
+                        </p>
+                        <p>(3) Lastly, our differentiable density map estimation allows us to incorporate a new kind of
+                            loss function based on the density map.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Qualitative Results</h2>
+                    <div class="content has-text-justified">
+                        <div class="slider-container">
+                            <div class="slides-wrapper">
+                                <div class="slide">
+                                    <img src="/assets/Dense.png" alt="Dense-Haze Results">
+                                    <div class="slide-info">
+                                        <div class="custom-description">Dense-Haze</div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/NH1.png" alt="Dense-Haze Results">
+                                    <div class="slide-info">
+                                        <div class="custom-description">NH-Haze</div>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/NH2.png" alt="Dense-Haze Results">
+                                    <div class="slide-info">
+                                        <div class="custom-description">NH-Haze 2</div>
+                                    </div>
+                                </div>
+                                <!-- 다른 슬라이드들도 같은 구조로 -->
+                            </div>
+                            <a class="prev">&#10094;</a>
+                            <a class="next">&#10095;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Quantitatve Results</h2>
+                    <div class="content has-text-justified">
+                        <figure>
+                            <img src="assets/main_table.png" alt="main_table" title="main_table">
+                            <figcaption>Quantitative Comparisons</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Versatility of Continous Density Mask</h2>
+                    <div class="content has-text-justified">
+                        <figure>
+                            <img src="assets/cdm_on_various_networks.png" alt="main_table" title="cdm_ablation">
+                            <figcaption>CDM on Various Networks</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="assets/cdm_unet.png" alt="main_table" title="cdm_unet">
+                            <figcaption>Effect of CDM on U-Net</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="assets/cdm_ffanet.png" alt="main_table" title="cdm_ffanet">
+                            <figcaption>Effect of CDM on FFA-Net</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Qualitative Results</h2>
+                    <div class="content has-text-justified">
+                        <div class="slider-container">
+                            <div class="slides-wrapper">
+                                <div class="slide">
+                                    <img src="assets/cdm_on_various_networks.png" alt="Dense-Haze Results">
+                                    <div class="slide-info">
+                                        <div class="custom-description">Effect of CDM</div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/FPS_comparison.png" alt="Dense-Haze Results">
+                                    <div class="slide-info">
+                                        <div class="custom-description">FPS on various GPU</div>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/table_FPS.png" alt="Dense-Haze Results">
+                                    <div class="slide-info">
+                                        <div class="custom-description">FPS on various Resolution</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="prev">&#10094;</a>
+                            <a class="next">&#10095;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Performance on Real-world Scenarios</h2>
+                    <div class="content has-text-justified">
+                        <figure>
+                            <img src="assets/real_world_result.png" alt="real_world" title="real_world">
+                            <figcaption>Results on Real-world Images with Real Haze</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>This website is licensed under a
+                            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+                                Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                        <p>This means you are free to borrow the
+                            <a href="https://github.com/nerfies/nerfies.github.io">source code</a>
+                            of this website, we just ask that you link back to this page in the footer. Please remember
+                            to remove the analytics code
+                            included in the header of the website which you do not want on your website.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
